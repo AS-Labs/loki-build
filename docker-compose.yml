@@ -3,7 +3,7 @@ networks:
   loki:
 services:
   loki:
-    image: grafana/loki:latest
+    image: grafana/loki:2.4.0
     volumes:
       - /home/as-labs/code/loki-build/loki:/etc/loki
     ports:
@@ -13,7 +13,7 @@ services:
     networks:
       - loki
   promtail:
-    image: grafana/promtail:latest
+    image: grafana/promtail:2.4.0
     volumes:
       - /var/log:/var/log
       - /home/as-labs/code/loki-build/promtail:/etc/promtail
