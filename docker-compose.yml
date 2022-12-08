@@ -5,7 +5,7 @@ services:
   loki:
     image: grafana/loki:latest
     volumes:
-      - /home/as-labs/docker-pods/loki-build/loki:/etc/loki
+      - /home/as-labs/code/loki-build/loki:/etc/loki
     ports:
       - "3100:3100"
     restart: unless-stopped
@@ -16,7 +16,7 @@ services:
     image: grafana/promtail:latest
     volumes:
       - /var/log:/var/log
-      - /home/as-labs/docker-pods/loki-build/promtail:/etc/promtail
+      - /home/as-labs/code/loki-build/promtail:/etc/promtail
     restart: unless-stopped
     command: -config.file=/etc/promtail/promtail-config.yml
     networks:
@@ -25,7 +25,7 @@ services:
     image: grafana/grafana:latest
     user: "1000"
     volumes:
-      - /home/as-labs/docker-pods/loki-build/grafana:/var/lib/grafana
+      - /home/as-labs/code/loki-build/grafana:/var/lib/grafana
     ports:
       - "3000:3000"
     restart: unless-stopped
