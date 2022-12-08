@@ -15,13 +15,4 @@ scrape_configs:
       - localhost
     labels:
       job: varlogs
-      __path__: /var/log/*/*log
-
-scrape_configs:
-  - job_name: docker
-    pipeline_stages:
-      - docker: {}
-    static_configs:
-      - labels:
-        job: docker
-        __path__: /var/lib/docker/containers/*/*-json.log
+      __path__: /var/log/*/*
